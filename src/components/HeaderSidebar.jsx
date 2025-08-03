@@ -1,28 +1,9 @@
 import React, { useContext, useState } from 'react';
 import ThemeContext from '../context/ThemeContext';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const HeaderSidebar = () => {
     const { theme, setTheme, getFontClass } = useContext(ThemeContext);
-    const [active1, setActive1] = useState(true);
-    const [active2, setActive2] = useState(false);
-    const [active3, setActive3] = useState(false);
-
-    const handleHome = () => {
-        setActive1(true);
-        setActive2(false);
-        setActive3(false);
-    };
-    const handleAbout = () => {
-        setActive1(false);
-        setActive2(true);
-        setActive3(false);
-    };
-    const handleContact = () => {
-        setActive1(false);
-        setActive2(false);
-        setActive3(true);
-    };
 
     const isSidebar = theme === 'theme2';
     const handleThemeChange = e => setTheme(e.target.value);
@@ -49,15 +30,26 @@ const HeaderSidebar = () => {
                     : 'md:flex-row gap-2 md:gap-4 text-base'
                     }`}
                 >
-                    <Link to="/" onClick={handleHome} className={`${active1 && 'text-blue-500 underline font-semibold'} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}>
+                    <NavLink
+                        to="/"
+                        className={({ isActive }) => `${isActive ? 'text-blue-600 font-bold underline' : ''} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}
+                    >
                         Home
-                    </Link>
-                    <Link to="/about" onClick={handleAbout} className={`${active2 && 'text-blue-500 underline font-semibold'} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}>
+                    </NavLink>
+
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) => `${isActive ? 'text-blue-600 font-bold underline' : ''} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}
+                    >
                         About
-                    </Link>
-                    <Link to="/contact" onClick={handleContact} className={`${active3 && 'text-blue-500 underline font-semibold'} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}>
+                    </NavLink>
+
+                    <NavLink
+                        to="/contact"
+                        className={({ isActive }) => `${isActive ? 'text-blue-600 font-bold underline' : ''} ${getFontClass()} hover:underline hover:text-blue-400 transition-colors duration-300`}
+                    >
                         Contact
-                    </Link>
+                    </NavLink>
                 </nav>
             </div>
 
