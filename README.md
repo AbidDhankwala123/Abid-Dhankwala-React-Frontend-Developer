@@ -10,10 +10,10 @@ A multi-theme React app built with Vite and Tailwind CSS. Supports three themes 
 - React Context for theme management
 - Vite + Tailwind + React
 
-## Deployed Link
+## 🌐 Live Site
 https://abid-react-frontend-developer.netlify.app/
 
-## Setup Instructions
+## ⚙️ Setup Instructions
 
 # Clone the repository
 git clone https://github.com/AbidDhankwala123/Abid-Dhankwala-React-Frontend-Developer.git
